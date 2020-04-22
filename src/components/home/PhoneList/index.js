@@ -5,7 +5,7 @@ import { Subtitle } from 'components/commons/Subtitle'
 import { Spacing } from 'components/commons/Spacing'
 import { Flex } from 'components/commons/Flex'
 import { GiProcessor } from 'react-icons/gi'
-import { BsFullscreen } from 'react-icons/bs'
+import { BsFullscreen, BsLightningFill } from 'react-icons/bs'
 import { MdAttachMoney } from 'react-icons/md'
 
 const PhoneCard = styled.div`
@@ -29,45 +29,56 @@ const PhoneCard = styled.div`
 const PhoneImage = styled.img`
   width: 200px;
   border-radius: 2px;
+  @media (max-width: 600px) {
+    width: 170px;
+  }
 `
 
 const Kpi = styled.div`
   display: flex;
   align-items: center;
-  flex-direction: column;
   color: ${({ theme }) => theme.primary};
-  width: 60px;
   svg {
     height: 24px;
     width: 24px;
+  }
+  @media (max-width: 600px) {
+    svg {
+      height: 16px;
+      width: 16px;
+    }
   }
 `
 
 const PhoneList = ({ phones }) => {
   return phones.map((phone) => {
-    const { imageFileName, name, price, id, processor, screen } = phone
+    const { imageFileName, name, price, id, processor, screen, ram } = phone
     return (
       <PhoneCard key={id}>
         <PhoneImage src={imageFileName} />
-        <Flex column styles='width: 100%; padding: 24px 24px 24px 0;'>
+        <Flex column styles='width: 100%; padding: 24px 24px 24px 0;' justify='space-between;'>
           <Subtitle>{name}</Subtitle>
-          <Spacing size='40' />
-          <Flex justify='space-between'>
+          <Flex column justify='space-between' styles='width: 164px;'>
             <Kpi>
-              <MdAttachMoney />
-              <Spacing />
-              <Text center>{price}</Text>
+              <BsLightningFill />
+              <Spacing vertical />
+              <Text center>{ram} Gb</Text>
             </Kpi>
+            <Spacing />
             <Kpi>
               <GiProcessor />
-              <Spacing />
+              <Spacing vertical />
               <Text center>{processor}</Text>
             </Kpi>
+            <Spacing />
             <Kpi>
               <BsFullscreen />
-              <Spacing />
+              <Spacing vertical />
               <Text center>{screen}</Text>
             </Kpi>
+          </Flex>
+          <Flex justify='flex-end'>
+            <Text color='primary' size='16' bold>$ {price}</Text>
           </Flex>
         </Flex>
       </PhoneCard>

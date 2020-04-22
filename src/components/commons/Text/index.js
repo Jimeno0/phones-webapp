@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const Text = styled.p`
   margin: 0px;
   padding: 0px;
-  font-size: 14px;
+  font-size: ${({ size }) => size ? `${size}px` : '14px'};
   color: ${({ theme, color }) => theme[color]};
   ${({ center }) => center && 'text-align: center;'}
   ${({ styles }) => styles}

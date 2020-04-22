@@ -5,7 +5,7 @@ const Subtitle = styled.h4`
   padding: 0px;
   font-weight: bold;
   position: relative;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   font-size: 16px;
   color: ${({ theme, color }) => theme[color]};
   &::before {
@@ -14,7 +14,7 @@ const Subtitle = styled.h4`
     height: 3px;
     background-color: ${({ theme }) => theme.primary};
     position: absolute;
-    bottom: -16px;
+    bottom: -14px;
   }
 
 `
