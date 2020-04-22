@@ -1,11 +1,26 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
+import { Home, Detail } from 'views'
+import { ThemeProvider } from 'styled-components'
+import { theme } from 'theme'
 
-function App () {
+export default function App () {
   return (
-    <div className='App'>
-      bla
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Switch>
+          <Route path='/detail/:id'>
+            <Detail />
+          </Route>
+          <Route path='/'>
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </ThemeProvider>
   )
 }
-
-export default App
