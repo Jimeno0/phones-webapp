@@ -1,5 +1,6 @@
 import React from 'react'
 import { Header, Title, Main } from 'components'
+import { PhonesList } from 'containers'
 
 const Home = (props) => {
   return (
@@ -10,7 +11,7 @@ const Home = (props) => {
         </Title>
       </Header>
       <Main>
-        Home
+        <PhonesList />
       </Main>
     </>
   )
