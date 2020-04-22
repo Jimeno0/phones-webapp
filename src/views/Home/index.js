@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Title, Main } from 'components'
+import { Header, Title } from 'components'
 import { PhonesList } from 'containers'
 
 const Home = (props) => {
@@ -10,9 +10,7 @@ const Home = (props) => {
           Phones store
         </Title>
       </Header>
-      <Main>
-        <PhonesList />
-      </Main>
+      <PhonesList />
     </>
   )
 }

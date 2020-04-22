@@ -6,7 +6,7 @@ import {
 } from 'actions'
 
 const initialState = {
-  isFetching: false,
+  isLoading: false,
   isError: false,
   phones: []
 }
@@ -21,13 +21,13 @@ const phonesReducer = (state = initialState, action) => {
     case REQUEST_PHONES:
       return {
         ...state,
-        isFetching: true,
+        isLoading: true,
         isError: false
       }
     case RECEIVE_PHONES:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
         isError: false,
         phones: action.payload
       }

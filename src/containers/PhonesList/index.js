@@ -6,12 +6,13 @@ import {
   receivePhones,
   errorFetching
 } from 'actions'
+import { Main, PhoneList as PhonesListComponent } from 'components'
 
 const uri = process.env.REACT_APP_API_URL
 const url = `${uri}/phones`
 
 const PhonesList = (props) => {
-  const phones = useSelector(state => state.phonesReducer.phones)
+  const { phones, isLoading } = useSelector(state => state.phonesReducer)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,14 +24,12 @@ const PhonesList = (props) => {
       })
       .catch(() => dispatch(errorFetching))
   }, [])
-
-  console.log({ phones })
-
   return (
-    <div>
-      phones List
-
-    </div>
+    <Main>
+      {isLoading
+        ? 'Loading...'
+        : <PhonesListComponent phones={phones} />}
+    </Main>
   )
 }
 
