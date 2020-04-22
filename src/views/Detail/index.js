@@ -1,11 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
+import { Header, Title, Main } from 'components'
 
 const Detail = (props) => {
   return (
-    <div>
-      Detail
-    </div>
+    <>
+      <Header>
+        <Title>
+          Phones store
+        </Title>
+      </Header>
+      <Main>
+        Detail
+      </Main>
+    </>
   )
 }
 

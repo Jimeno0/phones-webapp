@@ -1,11 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
+import { Header, Title, Main } from 'components'
 
 const Home = (props) => {
   return (
-    <div>
-      Home
-    </div>
+    <>
+      <Header>
+        <Title>
+          Phones store
+        </Title>
+      </Header>
+      <Main>
+        Home
+      </Main>
+    </>
   )
 }
 
