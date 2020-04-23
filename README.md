@@ -3,3 +3,4 @@ TODO:
 * Combine reducers?
 * Add loader to home
 * check iphone displays and media queries
+* PhoneDetailComponent ??

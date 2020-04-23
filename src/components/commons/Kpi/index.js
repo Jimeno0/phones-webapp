@@ -1,4 +1,11 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const columnStyles = css`
+  flex-basis: 33%;
+  padding: 0 8px;
+  flex-direction: column;
+  ${({ whitBorder }) => whitBorder && 'border-right: 1px solid;'}
+`
 
 const Kpi = styled.div`
   display: flex;
@@ -14,6 +21,7 @@ const Kpi = styled.div`
       width: 16px;
     }
   }
+  ${({ column }) => column && columnStyles}
 `
 
 export { Kpi }

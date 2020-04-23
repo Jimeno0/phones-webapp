@@ -16,6 +16,7 @@ export const errorFetching = () => ({
   type: ERROR_FETCHING
 })
 
-export const setActivePhone = () => ({
-  type: setActivePhone
+export const setActivePhone = phone => ({
+  type: SET_ACTIVE_PHONE,
+  payload: phone
 })

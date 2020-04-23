@@ -1,14 +1,27 @@
 import React from 'react'
-import { Main, PhoneList as PhonesListComponent } from 'components'
+import { Main, PhoneCard } from 'components'
 import { usePhones } from 'hooks'
+import { useHistory } from 'react-router-dom'
 
 const PhonesList = (props) => {
   const { isLoading, phones } = usePhones()
+  const history = useHistory()
+
+  const handlePhoneClick = (phone) => {
+    history.push(`/detail/${phone.id}`)
+  }
+
   return (
     <Main>
       {isLoading
         ? 'Loading...'
-        : <PhonesListComponent phones={phones} />}
+        : phones.map((phone) => (
+          <PhoneCard
+            {...phone}
+            onClick={handlePhoneClick}
+            key={phone.id}
+          />
+        ))}
     </Main>
   )
 }

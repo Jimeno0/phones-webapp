@@ -1,5 +1,6 @@
 import React from 'react'
-import { Header, Title, Main } from 'components'
+import { Header, Title } from 'components'
+import { PhoneDetail } from 'containers'
 
 const Detail = (props) => {
   return (
@@ -9,9 +10,7 @@ const Detail = (props) => {
           Phones store
         </Title>
       </Header>
-      <Main>
-        Detail
-      </Main>
+      <PhoneDetail />
     </>
   )
 }

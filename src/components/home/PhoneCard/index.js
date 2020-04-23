@@ -4,17 +4,26 @@ import { Text } from 'components/commons/Text'
 import { Subtitle } from 'components/commons/Subtitle'
 import { Spacing } from 'components/commons/Spacing'
 import { Flex } from 'components/commons/Flex'
+import { Kpi } from 'components/commons/Kpi'
 import { GiProcessor } from 'react-icons/gi'
 import { BsFullscreen, BsLightningFill } from 'react-icons/bs'
 import { CardWrapper } from './CardWrapper'
 import { PhoneImage } from './PhoneImage'
-import { Kpi } from './Kpi'
 import { descrpitionStyles, kpisWrapperStyles } from './styles'
 
 const PhoneCard = (props) => {
-  const { imageFileName, name, price, id, processor, screen, ram } = props
+  const { onClick, ...phone } = props
+  const {
+    imageFileName,
+    name,
+    price,
+    id,
+    processor,
+    screen,
+    ram
+  } = phone
   return (
-    <CardWrapper key={id}>
+    <CardWrapper key={id} onClick={() => onClick(phone)}>
       <PhoneImage src={imageFileName} />
       <Flex column styles={descrpitionStyles} justify='space-between;'>
         <Subtitle>{name}</Subtitle>
@@ -52,7 +61,12 @@ PhoneCard.propTypes = {
   price: PropTypes.number,
   processor: PropTypes.string,
   screen: PropTypes.string,
+  onClick: PropTypes.func,
   ram: PropTypes.number
+}
+
+PhoneCard.defaultProps = {
+  onClick: () => {}
 }
 
 export { PhoneCard }

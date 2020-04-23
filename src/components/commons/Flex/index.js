@@ -6,5 +6,6 @@ export const Flex = styled.div`
   ${({ justify }) => justify && `justify-content: ${justify};`}
   ${({ align }) => align && `align-items: ${align};`}
   ${({ wraped }) => wraped && 'flex-wrap: wrap;'}
+  ${({ grow }) => grow && `flex-grow: ${grow};`}
   ${({ styles }) => styles}
 `

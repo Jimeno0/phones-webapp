@@ -12,7 +12,7 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import reducer from './reducers'
 
-const middleware = [ thunk ]
+const middleware = [thunk]
 
 const store = createStore(
   reducer,
@@ -21,19 +21,19 @@ const store = createStore(
 
 export default function App () {
   return (
-      <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Switch>
-          <Route path='/detail/:id'>
-            <Detail />
-          </Route>
-          <Route path='/'>
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
-    </ThemeProvider>
-      </Provider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Switch>
+            <Route path='/detail/:id'>
+              <Detail />
+            </Route>
+            <Route path='/'>
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+      </ThemeProvider>
+    </Provider>
   )
 }
