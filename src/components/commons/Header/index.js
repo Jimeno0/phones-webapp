@@ -5,11 +5,11 @@ import PropTypes from 'prop-types'
 import { ContentWrapper } from './ContentWrapper'
 import { HeaderWrapper } from './HeaderWrapper'
 
-const Header = ({ children }) => {
+const Header = ({ children, onLogoClick }) => {
   return (
     <HeaderWrapper>
-      <img className='logo' src={logo} alt='logo' />
-      <img className='icon' src={icon} alt='icon' />
+      <img onClick={onLogoClick} className='logo' src={logo} alt='logo' />
+      <img onClick={onLogoClick} className='icon' src={icon} alt='icon' />
       <ContentWrapper>
         {children}
       </ContentWrapper>
@@ -18,7 +18,12 @@ const Header = ({ children }) => {
 }
 
 Header.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  onLogoClick: PropTypes.func
+}
+
+Header.defalutProps = {
+  onLogoClick: () => {}
 }
 
 export { Header }

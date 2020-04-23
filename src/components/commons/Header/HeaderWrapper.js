@@ -9,6 +9,9 @@ export const HeaderWrapper = styled.header`
   padding: 10px 200px 10px 40px;
   display: flex;
   box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.4);
+  img {
+    cursor: pointer;
+  }
   .logo{
     width: 160px;
   }

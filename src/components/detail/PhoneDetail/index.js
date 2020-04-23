@@ -29,7 +29,7 @@ const PhoneDetail = (props) => {
       <Flex column>
         <Spacing size='48' />
         <Subtitle>{name}</Subtitle>
-        <Spacing size='24' />
+        <Spacing size='40' />
         <Flex justify='center' styles={kpisWrapperStyles}>
           <Kpi column whitBorder>
             <BsLightningFill />
