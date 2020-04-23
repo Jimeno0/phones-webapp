@@ -1,29 +1,9 @@
-import React, { useEffect } from 'react'
-import axios from 'axios'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-  requestPhones,
-  receivePhones,
-  errorFetching
-} from 'actions'
+import React from 'react'
 import { Main, PhoneList as PhonesListComponent } from 'components'
-
-const uri = process.env.REACT_APP_API_URL
-const url = `${uri}/phones`
+import { usePhones } from 'hooks'
 
 const PhonesList = (props) => {
-  const { phones, isLoading } = useSelector(state => state.phonesReducer)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(requestPhones())
-    axios.get(url)
-      .then((response) => {
-        const { data } = response
-        dispatch(receivePhones(data))
-      })
-      .catch(() => dispatch(errorFetching))
-  }, [])
+  const { isLoading, phones } = usePhones()
   return (
     <Main>
       {isLoading
