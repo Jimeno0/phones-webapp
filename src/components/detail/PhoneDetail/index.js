@@ -25,7 +25,7 @@ const PhoneDetail = (props) => {
   } = props
   return (
     <Flex styles={wrapperStyles}>
-      <PhoneImage src={imageFileName} />
+      <PhoneImage src={imageFileName} alt='phone' />
       <Flex column>
         <Spacing size='48' />
         <Subtitle>{name}</Subtitle>
@@ -48,7 +48,7 @@ const PhoneDetail = (props) => {
           </Kpi>
         </Flex>
         <Spacing size='16' />
-        <Text> By {manufacturer}</Text>
+        <Text>By {manufacturer}</Text>
         <Spacing size='16' />
         <Flex align='center'>
           <Text>Color:</Text>
