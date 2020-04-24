@@ -3,8 +3,8 @@ import { phonesReducer } from './phones'
 import { activePhoneReducer } from './activePhone'
 
 const rootReducer = combineReducers({
-  phonesReducer,
-  activePhoneReducer
+  phones: phonesReducer,
+  activePhone: activePhoneReducer
 })
 
 export default rootReducer

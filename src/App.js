@@ -12,11 +12,9 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import reducer from './reducers'
 
-const middleware = [thunk]
-
 const store = createStore(
   reducer,
-  applyMiddleware(...middleware)
+  applyMiddleware(thunk)
 )
 
 export default function App () {

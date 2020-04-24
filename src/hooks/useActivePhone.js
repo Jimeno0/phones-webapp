@@ -6,13 +6,13 @@ import { setActivePhone } from 'actions'
 const useActivePhone = (id) => {
   const { isLoading, phones } = usePhones()
   const dispatch = useDispatch()
-  const phone = useSelector(state => state.activePhoneReducer)
+  const phone = useSelector(({ activePhone }) => activePhone)
 
   useEffect(() => {
     if (isLoading) return
     const active = phones.find((item) => item.id === id)
     dispatch(setActivePhone(active))
-  }, [isLoading])
+  }, [isLoading, id])
 
   return { isLoading, phone }
 }
