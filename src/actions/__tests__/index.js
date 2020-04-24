@@ -1,3 +1,6 @@
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import fetchMock from 'fetch-mock'
 import {
   requestPhones,
   receivePhones,
@@ -23,13 +26,19 @@ const phone = {
   ram: 2
 }
 
+const uri = process.env.REACT_APP_API_URL
+const url = `${uri}/phones`
+
+const middlewares = [thunk]
+const mockStore = configureMockStore(middlewares)
+
 describe('actions', () => {
-  test('should create a requestPhones action', () => {
+  test('create a requestPhones action', () => {
     const expectedAction = { type: REQUEST_PHONES }
     expect(requestPhones()).toEqual(expectedAction)
   })
 
-  test('should create a receivePhones action', () => {
+  test('create a receivePhones action', () => {
     const expectedAction = {
       type: RECEIVE_PHONES,
       payload: [phone]
@@ -37,16 +46,39 @@ describe('actions', () => {
     expect(receivePhones([phone])).toEqual(expectedAction)
   })
 
-  test('should create a errorFetching action', () => {
+  test('create a errorFetching action', () => {
     const expectedAction = { type: ERROR_FETCHING }
     expect(errorFetching()).toEqual(expectedAction)
   })
 
-  test('should create a setActivePhone action', () => {
+  test('create a setActivePhone action', () => {
     const expectedAction = {
       type: SET_ACTIVE_PHONE,
       payload: phone
     }
     expect(setActivePhone(phone)).toEqual(expectedAction)
+  })
+})
+
+describe('async actions', () => {
+  afterEach(() => {
+    fetchMock.restore()
+  })
+
+  it('creates RECEIVE_PHONES when fetching phones has been done', () => {
+    fetchMock.getOnce(url, {
+      body: [phone],
+      headers: { 'content-type': 'application/json' }
+    })
+
+    const expectedActions = [
+      { type: REQUEST_PHONES },
+      { type: RECEIVE_PHONES, payload: [phone] }
+    ]
+    const store = mockStore({ phones: [] })
+
+    return store.dispatch(fetchPhones()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions)
+    })
   })
 })
