@@ -19,7 +19,7 @@ export const HeaderWrapper = styled.header`
     width: 40px;
     display: none;
   }
-  @media (max-width: 1024px) {
+  @media (max-width: 900px) {
     padding-right: 80px;
    .logo {
      display: none;

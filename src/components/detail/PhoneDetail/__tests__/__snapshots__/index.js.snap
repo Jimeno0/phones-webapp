@@ -4,6 +4,7 @@ exports[`Phone detail Snapshot 1`] = `
 <div>
   <div
     class="sc-AxhUy jGheux"
+    data-testid="phone-detail"
   >
     <img
       alt="phone"

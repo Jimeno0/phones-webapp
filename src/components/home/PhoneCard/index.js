@@ -23,7 +23,7 @@ const PhoneCard = (props) => {
     ram
   } = phone
   return (
-    <CardWrapper data-testid={`phone-card-${id}`} key={id} onClick={() => onClick(phone)}>
+    <CardWrapper data-testid='phone-card' key={id} onClick={() => onClick(phone)}>
       <PhoneImage src={imageFileName} />
       <Flex column styles={descrpitionStyles} justify='space-between;'>
         <Subtitle>{name}</Subtitle>

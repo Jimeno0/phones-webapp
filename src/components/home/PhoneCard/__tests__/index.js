@@ -44,7 +44,7 @@ describe('Phone card', () => {
 
   test('on card click triggers action', () => {
     const { getByTestId } = render(<PhoneCard {...phoneData} />)
-    const Card = getByTestId(`phone-card-${phoneData.id}`)
+    const Card = getByTestId('phone-card')
     userEvent.click(Card)
     expect(clickMock).toHaveBeenCalled()
   })

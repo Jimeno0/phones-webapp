@@ -4,7 +4,7 @@ exports[`Phone card Snapshot 1`] = `
 <div>
   <div
     class="sc-AxgMl jKTyIk"
-    data-testid="phone-card-undefined"
+    data-testid="phone-card"
   >
     <img
       class="sc-AxheI feDsDh"

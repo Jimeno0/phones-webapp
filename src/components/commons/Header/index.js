@@ -8,8 +8,8 @@ import { HeaderWrapper } from './HeaderWrapper'
 const Header = ({ children, onLogoClick }) => {
   return (
     <HeaderWrapper>
-      <img onClick={onLogoClick} className='logo' src={logo} alt='logo' />
-      <img onClick={onLogoClick} className='icon' src={icon} alt='icon' />
+      <img data-testid='navbar-logo' onClick={onLogoClick} className='logo' src={logo} alt='logo' />
+      <img data-testid='navbar-logo' onClick={onLogoClick} className='icon' src={icon} alt='icon' />
       <ContentWrapper>
         {children}
       </ContentWrapper>

@@ -24,7 +24,7 @@ const PhoneDetail = (props) => {
     ram
   } = props
   return (
-    <Flex styles={wrapperStyles}>
+    <Flex data-testid='phone-detail' styles={wrapperStyles}>
       <PhoneImage src={imageFileName} alt='phone' />
       <Flex column>
         <Spacing size='48' />
