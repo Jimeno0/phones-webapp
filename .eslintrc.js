@@ -1,13 +1,15 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true
+    es6: true,
+    'cypress/globals': true
   },
   parser: 'babel-eslint',
   extends: [
     'standard' ,
     'standard-react' ,
-    'plugin:jest/recommended'
+    'plugin:jest/recommended',
+    'plugin:cypress/recommended'
   ],
   globals: {
     Atomics: 'readonly',
@@ -21,7 +23,8 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'react'
+    'react',
+    'esling-plugin-cypress'
   ],
   settings: {
     react: {

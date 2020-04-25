@@ -25,3 +25,9 @@ yarn-error.log*
 # Vim
 *.swp
 *.swo
+
+
+# cypress
+
+cypress/videos
+cypress/screenshots
